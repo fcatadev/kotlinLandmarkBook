@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.fcadev.landmarkbookkotlin.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +34,11 @@ class MainActivity : AppCompatActivity() {
         landmarkList.add(eiffel)
         landmarkList.add(londonBridge)
 
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        val landmarkAdapter = LandmarkAdapter(landmarkList)
+        binding.recyclerView.adapter = landmarkAdapter
+
+        /*
         //Adapter : Layout & Data
 
         //Mapping
@@ -45,6 +52,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("landmark", landmarkList.get(i))
             startActivity(intent)
         }
+         */
 
     }
 }
