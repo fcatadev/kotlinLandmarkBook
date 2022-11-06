@@ -2,6 +2,7 @@ package com.fcadev.landmarkbookkotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import com.fcadev.landmarkbookkotlin.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +30,13 @@ class MainActivity : AppCompatActivity() {
         landmarkList.add(eiffel)
         landmarkList.add(londonBridge)
 
+        //Adapter : Layout & Data
 
+        //Mapping
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, landmarkList.map { landmark -> landmark.name })
+
+        binding.listView.adapter = adapter
 
     }
 }
