@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.fcadev.landmarkbookkotlin.MySingleton.chosenLandmark
 import com.fcadev.landmarkbookkotlin.databinding.RecyclerRowBinding
 
 class LandmarkAdapter (val landmarkList : ArrayList<Landmark>) : RecyclerView.Adapter<LandmarkAdapter.LandmarkHolder>() {
@@ -23,7 +24,8 @@ class LandmarkAdapter (val landmarkList : ArrayList<Landmark>) : RecyclerView.Ad
 
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, DetailsActivity::class.java)
-            intent.putExtra("landmark", landmarkList.get((position)))
+            //intent.putExtra("landmark", landmarkList.get((position)))
+            MySingleton.chosenLandmark = landmarkList.get(position)
             holder.itemView.context.startActivity(intent)
         }
 

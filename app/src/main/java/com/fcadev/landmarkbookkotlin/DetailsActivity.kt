@@ -17,11 +17,14 @@ class DetailsActivity : AppCompatActivity() {
 
         val intent = intent
         //casting
-        val selectedLandmark = intent.getSerializableExtra("landmark") as Landmark
+        //val selectedLandmark = intent.getSerializableExtra("landmark") as Landmark
+        val selectedLandmark = MySingleton.chosenLandmark
 
-        binding.nameText.text = selectedLandmark.name
-        binding.countryText.text = selectedLandmark.country
-        binding.imageView.setImageResource(selectedLandmark.image)
+        selectedLandmark?.let {
+            binding.nameText.text = it.name
+            binding.countryText.text = it.country
+            binding.imageView.setImageResource(it.image)
+        }
 
     }
 }

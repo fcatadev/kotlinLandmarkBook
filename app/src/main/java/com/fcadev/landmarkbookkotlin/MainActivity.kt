@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fcadev.landmarkbookkotlin.databinding.ActivityMainBinding
 
+
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
