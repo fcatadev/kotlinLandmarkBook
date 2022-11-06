@@ -1,7 +1,9 @@
 package com.fcadev.landmarkbookkotlin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.fcadev.landmarkbookkotlin.databinding.ActivityMainBinding
 
@@ -37,6 +39,12 @@ class MainActivity : AppCompatActivity() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, landmarkList.map { landmark -> landmark.name })
 
         binding.listView.adapter = adapter
+
+        binding.listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
+            val intent = Intent(MainActivity@this, DetailsActivity::class.java)
+            intent.putExtra("landmark", landmarkList.get(i))
+            startActivity(intent)
+        }
 
     }
 }
